@@ -1,0 +1,175 @@
+use db_supro;
+
+db.User.insert([
+	{
+		UserName: "admin",
+		Password: "123456",
+		Role: "administrator",
+		IsDelete: false,
+		CreatedBy: "System",
+		CreatedDate: new Date(),
+		UpdateBy: null,
+		UpdateDate: null
+	}
+]);
+
+db.Suppliers.insert([
+	{
+		CompanyName: "Exotic Liquids",
+		ContactName: "Charlotte Cooper",
+		ContactEmail: "c.chooper@el.com",
+		ContactTitle: "Purchasing Manager",
+		Address: "49 Gilbert St.",
+		City: "London",
+		PostalCode: "EC1 4SD",
+		Country: "UK",
+		Phone: "(171) 555-2222",
+		Fax: null,
+		IsDelete: false,
+		CreatedBy: "System",
+		CreatedDate: new Date(),
+		UpdateBy: null,
+		UpdateDate: null
+	},
+	{
+		CompanyName: "Tokyo Traders",
+		ContactName: "Yoshi Nagase",
+		ContactEmail: "yoshi.n@tokyotraders.com",
+		ContactTitle: "Marketing Manager",
+		Address: "9-8 Sekimai Musashino-shi",
+		City: "Tokyo",
+		PostalCode: "100",
+		Country: "Japan",
+		Phone: "(03) 3555-5011",
+		Fax: null,
+		IsDelete: false,
+		CreatedBy: "System",
+		CreatedDate: new Date(),
+		UpdateBy: null,
+		UpdateDate: null
+	},
+	{
+		CompanyName: "Grandma Kelly's Homestead",
+		ContactName: "Regina Murphy",
+		ContactEmail: "regina.murphy@gkh.com",
+		ContactTitle: "Sales Representative",
+		Address: "707 Oxford Rd.",
+		City: "Ann Arbor",
+		PostalCode: "48104",
+		Country: "USA",
+		Phone: "(313) 555-5735",
+		Fax: "(313) 555-3349",
+		IsDelete: false,
+		CreatedBy: "System",
+		CreatedDate: new Date(),
+		UpdateBy: null,
+		UpdateDate: null
+	}
+]);
+
+db.Products.insert([
+	{
+		ProductName: "Chai",
+		SupplierName: ObjectId("5bd6719c31b274401361da2f"),
+		CategoryName: "Beverages",
+		QuantityPerUnit: "10 boxes x 20 bags",
+		UnitPrice: 18,
+		UnitsInStock: 120,
+		IsDelete: false,
+		CreatedBy: "System",
+		CreatedDate: new Date(),
+		UpdateBy: null,
+		UpdateDate: null
+	},
+	{
+		ProductName: "Chang",
+		SupplierName: ObjectId("5bd6719c31b274401361da2f"),
+		CategoryName: "Beverages",
+		QuantityPerUnit: "24 - 12 oz bottles",
+		UnitPrice: 19,
+		UnitsInStock: 50,
+		IsDelete: false,
+		CreatedBy: "System",
+		CreatedDate: new Date(),
+		UpdateBy: null,
+		UpdateDate: null
+	},
+	{
+		ProductName: "Aniseed Syrup",
+		SupplierName: ObjectId("5bd6719c31b274401361da2f"),
+		CategoryName: "Condiments",
+		QuantityPerUnit: "12 - 550 ml bottles",
+		UnitPrice: 10,
+		UnitsInStock: 54,
+		IsDelete: false,
+		CreatedBy: "System",
+		CreatedDate: new Date(),
+		UpdateBy: null,
+		UpdateDate: null
+	},
+	{
+	 	ProductName : "Chef Anton's Cajun Seasoning",
+	 	SupplierName : ObjectId("5bd6719c31b274401361da30"),
+	 	CategoryName : "Condiments",
+	 	QuantityPerUnit : "48 - 6 oz jars",
+	 	UnitPrice : 22,
+	 	UnitsInStock : 100,
+	 	IsDelete : false,
+	 	CreatedBy : "System",
+	 	CreatedDate : new Date(),
+	 	UpdateBy : null,
+	 	UpdateDate : null
+	},
+	{
+	 	ProductName : "Grandma's Boysenberry Spread",
+	 	SupplierName : ObjectId("5bd6719c31b274401361da31"),
+	 	CategoryName : "Condiments",
+	 	QuantityPerUnit : "12 - 8 oz jars",
+	 	UnitPrice : 25,
+	 	UnitsInStock : 25,
+	 	IsDelete : false,
+	 	CreatedBy : "System",
+	 	CreatedDate : new Date(),
+	 	UpdateBy : null,
+	 	UpdateDate : null
+	},
+	{
+	 	ProductName : "Uncle Bob's Organic Dried Pears",
+	 	SupplierName : ObjectId("5bd6719c31b274401361da31"),
+	 	CategoryName : "Beverages",
+	 	QuantityPerUnit : "12 - 1 lb pkgs.",
+	 	UnitPrice : 30,
+	 	UnitsInStock : 70,
+	 	IsDelete : false,
+	 	CreatedBy : "System",
+	 	CreatedDate : new Date(),
+	 	UpdateBy : null,
+	 	UpdateDate : null
+	},
+	{
+	 	ProductName : "Ikura",
+	 	SupplierName : ObjectId("5bd6719c31b274401361da2f"),
+	 	CategoryName : "Dairy Products",
+	 	QuantityPerUnit : "12 - 200 ml jars.",
+	 	UnitPrice : 31,
+	 	UnitsInStock : 35,
+	 	IsDelete : false,
+	 	CreatedBy : "System",
+	 	CreatedDate : new Date(),
+	 	UpdateBy : null,
+	 	UpdateDate : null
+	},
+	{
+	 	ProductName : "Queso Cabrales",
+	 	SupplierName : ObjectId("5bd6719c31b274401361da30"),
+	 	CategoryName : "Seafood",
+	 	QuantityPerUnit : "1 kg pkg.",
+	 	UnitPrice : 21,
+	 	UnitsInStock : 10,
+	 	IsDelete : false,
+	 	CreatedBy : "system",
+	 	CreatedDate : new Date(),
+	 	UpdateBy : null,
+	 	UpdateDate : null
+	}
+]);
