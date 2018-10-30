@@ -7,6 +7,7 @@ var morgan = require('morgan');
 // import controller (module)
 var supplier = require('../controllers/supplier');
 var user = require('../controllers/user');
+var product = require('../controllers/product');
 
 // import middleware
 var middleware = require('../middleware/checktoken');
@@ -33,6 +34,13 @@ module.exports = exports = function(server) {
     server.post('/api/supplier/insert/', middleware.checkToken, supplier.CreateHandler);
     server.put('/api/supplier/update/:id', middleware.checkToken, supplier.UpdateHandler);
     server.del('/api/supplier/delete/:id', middleware.checkToken, supplier.DeleteHandler);
+
+    // Product Route
+    server.get('/api/product/', middleware.checkToken, product.GetAllHandler);
+    server.get('/api/product/:id', middleware.checkToken, product.GetDetailByIDHandler);
+    server.post('/api/product/insert/', middleware.checkToken, product.CreateHandler);
+    server.put('/api/product/update/:id', middleware.checkToken, product.UpdateHandler);
+    server.del('/api/product/delete/:id', middleware.checkToken, product.DeleteHandler);
 
     // error handler
     server.use(function(err, req, res, next) {

@@ -9,30 +9,76 @@ var now = new Date();
 
 const SupplierController = {
     GetAllHandler : (req, res, next) => {
-        global.dbo.collection('Suppliers').find({ IsDelete : false }).toArray((error, data) => {
+        global.dbo.collection('Suppliers').aggregate([
+            {
+                $match : { IsDelete : false }
+            },
+            {
+                $project :
+                {
+                    CompanyName : '$CompanyName',
+                    ContactName : '$ContactName',
+                    ContactEmail : '$ContactEmail',
+                    ContactTitle : '$ContactTitle',
+                    Address : { $concat: [ "$Address", " ", "$City", " ", "$PostalCode", " ", "$Country"] },
+                    Phone : '$Phone',
+                    Fax : '$Fax',
+                    IsDelete : '$IsDelete',
+                    CreatedBy : '$CreatedBy',
+                    CreatedDate : '$CreatedDate',
+                    UpdateBy : '$UpdateBy',
+                    UpdateDate : '$UpdateDate'
+                }
+            }
+        ]).toArray((error, data) => {
             if(error) {
                 return next(new Error());
             }
 
-            let modelSuppliers = data.map((entity) => {
-                return new suppliersModel(entity);
-            });
+            // let modelSuppliers = data.map((entity) => {
+            //     return new suppliersModel(entity);
+            // });
 
-            Response.send(res, 200, modelSuppliers);
+            Response.send(res, 200, data);
         });
     },
     GetDetailByIDHandler : (req, res, next) => {
         let id = req.params.id;
-        global.dbo.collection('Suppliers').find({ IsDelete : false, '_id' : ObjectID(id) }).toArray((error, data) => {
+        global.dbo.collection('Suppliers').aggregate([
+            {
+                $match : 
+                { 
+                    IsDelete : false, 
+                    _id : ObjectID(id)
+                }
+            },
+            {
+                $project :
+                {
+                    CompanyName : '$CompanyName',
+                    ContactName : '$ContactName',
+                    ContactEmail : '$ContactEmail',
+                    ContactTitle : '$ContactTitle',
+                    Address : { $concat: [ "$Address", " ", "$City", " ", "$PostalCode", " ", "$Country"] },
+                    Phone : '$Phone',
+                    Fax : '$Fax',
+                    IsDelete : '$IsDelete',
+                    CreatedBy : '$CreatedBy',
+                    CreatedDate : '$CreatedDate',
+                    UpdateBy : '$UpdateBy',
+                    UpdateDate : '$UpdateDate'
+                }
+            }
+        ]).toArray((error, data) => {
             if(error){
                 return next(new Error());
             }
 
-            let model = data.map((entity) => {
-                return new suppliersModel(entity);
-            });
+            // let model = data.map((entity) => {
+            //     return new suppliersModel(entity);
+            // });
 
-            Response.send(res, 200, model);
+            Response.send(res, 200, data);
         });
     },
     CreateHandler : (req, res, next) => {
