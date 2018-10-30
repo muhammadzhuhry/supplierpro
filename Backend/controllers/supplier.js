@@ -20,14 +20,18 @@ const SupplierController = {
                     ContactName : '$ContactName',
                     ContactEmail : '$ContactEmail',
                     ContactTitle : '$ContactTitle',
-                    Address : { $concat: [ "$Address", " ", "$City", " ", "$PostalCode", " ", "$Country"] },
+                    Address : '$Address', 
+                    City : '$City', 
+                    PostalCode : '$PostalCode', 
+                    Country : '$Country',
                     Phone : '$Phone',
                     Fax : '$Fax',
                     IsDelete : '$IsDelete',
                     CreatedBy : '$CreatedBy',
                     CreatedDate : '$CreatedDate',
                     UpdateBy : '$UpdateBy',
-                    UpdateDate : '$UpdateDate'
+                    UpdateDate : '$UpdateDate',
+                    FullAddress : { $concat: [ "$Address", " ", "$City", " ", "$PostalCode", " ", "$Country"] }
                 }
             }
         ]).toArray((error, data) => {
@@ -59,14 +63,18 @@ const SupplierController = {
                     ContactName : '$ContactName',
                     ContactEmail : '$ContactEmail',
                     ContactTitle : '$ContactTitle',
-                    Address : { $concat: [ "$Address", " ", "$City", " ", "$PostalCode", " ", "$Country"] },
+                    Address : '$Address', 
+                    City : '$City', 
+                    PostalCode : '$PostalCode', 
+                    Country : '$Country',
                     Phone : '$Phone',
                     Fax : '$Fax',
                     IsDelete : '$IsDelete',
                     CreatedBy : '$CreatedBy',
                     CreatedDate : '$CreatedDate',
                     UpdateBy : '$UpdateBy',
-                    UpdateDate : '$UpdateDate'
+                    UpdateDate : '$UpdateDate',
+                    FullAddress : { $concat: [ "$Address", " ", "$City", " ", "$PostalCode", " ", "$Country"] }
                 }
             }
         ]).toArray((error, data) => {

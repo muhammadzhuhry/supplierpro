@@ -25,22 +25,22 @@ module.exports = exports = function(server) {
     server.use(cors.actual);
 
     // User Route
-    server.post('/api/user/login', user.Login);
-    server.get('/api/user/logout', user.Logout);
+    server.post('/api/login', user.Login);
+    server.get('/api/logout', user.Logout);
 
     // Supplier Route
     server.get('/api/supplier/', middleware.checkToken, supplier.GetAllHandler);
     server.get('/api/supplier/:id', middleware.checkToken, supplier.GetDetailByIDHandler);
-    server.post('/api/supplier/insert/', middleware.checkToken, supplier.CreateHandler);
-    server.put('/api/supplier/update/:id', middleware.checkToken, supplier.UpdateHandler);
-    server.del('/api/supplier/delete/:id', middleware.checkToken, supplier.DeleteHandler);
+    server.post('/api/supplier/', middleware.checkToken, supplier.CreateHandler);
+    server.put('/api/supplier/:id', middleware.checkToken, supplier.UpdateHandler);
+    server.del('/api/supplier/:id', middleware.checkToken, supplier.DeleteHandler);
 
     // Product Route
     server.get('/api/product/', middleware.checkToken, product.GetAllHandler);
     server.get('/api/product/:id', middleware.checkToken, product.GetDetailByIDHandler);
-    server.post('/api/product/insert/', middleware.checkToken, product.CreateHandler);
-    server.put('/api/product/update/:id', middleware.checkToken, product.UpdateHandler);
-    server.del('/api/product/delete/:id', middleware.checkToken, product.DeleteHandler);
+    server.post('/api/product/', middleware.checkToken, product.CreateHandler);
+    server.put('/api/product/:id', middleware.checkToken, product.UpdateHandler);
+    server.del('/api/product/:id', middleware.checkToken, product.DeleteHandler);
 
     // error handler
     server.use(function(err, req, res, next) {

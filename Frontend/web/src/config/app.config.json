@@ -1,0 +1,11 @@
+{
+    "base_url" : "http://localhost:8000/",
+    "endpoints" : {
+        "login" : "api/login",
+        "supplier" : "api/supplier/"
+    },
+    "secure_key" : {
+        "userdata" : "SECURE_KEY_USERDATA",
+        "token" : "SECURE_KEY_TOKEN"
+    }
+}
